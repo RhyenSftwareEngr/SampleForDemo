@@ -20,7 +20,7 @@ public class Main {
     return a * b;
 }
 
-public int divideNumbers(int a, int b) {
+public int divide_Numbers(int a, int b) {
     // Include a log statement
     System.out.println("Dividing numbers: " + a + " / " + b);
     return a/b;

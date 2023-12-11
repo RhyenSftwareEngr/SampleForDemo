@@ -11,7 +11,7 @@ public class Main {
         System.out.println("Adding numbers: " + a + " + " + b);
         return a + b;
     }
-    public int subtractNumbers(int a, int b) {
+    public int subtract_Numbers(int a, int b) {
         // Include a log statement
         System.out.println("Subtracting numbers: " + a + " - " + b);
         return a - b;

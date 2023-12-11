@@ -21,7 +21,7 @@ public class Main {
 }
 
     public double computeThreeNumAverage(int a, int b, int c) {
-        return (a + b + c) / 2;
+        return (a + b + c) / 3;
     }
 
 public int divide_Numbers(int a, int b) {

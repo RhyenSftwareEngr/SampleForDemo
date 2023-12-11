@@ -25,7 +25,7 @@ public int divideNumbers(int a, int b) {
     System.out.println("Dividing numbers: " + a + " / " + b);
     return a/b;
 }
-public int remainderNumber(int a, int b){
+public int remainder_Number(int a, int b){
     return a%b;
 }
 }

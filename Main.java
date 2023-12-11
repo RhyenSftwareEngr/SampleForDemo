@@ -6,7 +6,7 @@ public class Main {
     }
 
    // Updated addNumbers method
-    public int addNumbers(int a, int b) {
+    public int add_Numbers(int a, int b) {
         // Include a log statement
         System.out.println("Adding numbers: " + a + " + " + b);
         return a + b;

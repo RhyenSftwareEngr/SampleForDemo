@@ -20,7 +20,7 @@ public class Main {
     return a * b;
 }
 
-    public double computeThreeNumAverage(int a, int b, int c) {
+    public double compute_ThreeNumAverage(int a, int b, int c) {
         return (a + b + c) / 3;
     }
 

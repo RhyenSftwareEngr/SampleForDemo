@@ -7,7 +7,6 @@
 
 import Foundation
 
-print("This is an error"
 
 public class Product {
     var name: String

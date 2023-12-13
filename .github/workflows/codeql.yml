@@ -1,4 +1,4 @@
-name: CodeQL
+name: CodeQL Analysis
 
 on:
   push:
@@ -11,23 +11,32 @@ jobs:
 
     strategy:
       matrix:
-        language: [java]  # Add other languages as needed
+        language: [java]
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Build
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'adopt'
+        java-version: '11'
+
+    - name: Build with Gradle
       run: |
-        # Add your custom build commands here
-        # For example, for Java projects, you might use:
-         mvn clean install
-        # or
-        # ./gradlew build
-        # Adjust these commands based on your project's build setup
+        ./gradlew build
 
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v1
 
+    - name: Autobuild
+      uses: github/codeql-action/autobuild@v1
+
     - name: Run CodeQL analysis
       uses: github/codeql-action/analyze@v1
+
+    - name: Upload CodeQL results
+      uses: github/codeql-action/upload-sarif@v1
+      with:
+        sarif_file: codeql-builtin-queries.sarif

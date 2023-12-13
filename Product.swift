@@ -42,6 +42,15 @@ public class ProductList{
         let newProduct = Product(name: name, price: price, harvestTime: harvestTime)
         Manager.share.productsList.products.append(newProduct)
     }
+
+    // WARNING: This code is vulnerable to injection attacks!
+func searchProduct(name: String) -> Product? {
+    let query = "SELECT * FROM products WHERE name = '\(name)'"
+    // Execute the query and return the result
+    // ...
+    return nil
+}
+
     
     func removeElement() {
         Manager.share.productsList.updated()

@@ -1,0 +1,42 @@
+name: CodeQL
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  analyze:
+    runs-on: macos-latest
+
+    strategy:
+      matrix:
+        language: [swift]
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Swift
+      uses: actions/setup-swift@latest
+
+    - name: Build with Swift
+      run: |
+        swift build
+
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v1
+
+    - name: Autobuild
+      run: |
+        swift package generate-xcodeproj
+        # Provide custom build steps for Swift if necessary
+        # e.g., xcodebuild or swift package generate-xcodeproj
+
+    - name: Run CodeQL analysis
+      uses: github/codeql-action/analyze@v1
+
+    - name: Upload CodeQL results
+      uses: github/codeql-action/upload-sarif@v1
+      with:
+        sarif_file: codeql-builtin-queries.sarif
